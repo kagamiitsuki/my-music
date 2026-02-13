@@ -19,28 +19,54 @@
       <div class="brand__meta">Lyrics & Music: kagami itsuki / Vocal: ミナ</div>
     </div>
 
-    <!-- カバーフロー（3曲） -->
-    <section class="coverflow" aria-label="ジャケット一覧（クリックで曲を切替）">
-      <button class="cf-nav" id="cfPrev" type="button" aria-label="前へ">‹</button>
+    <section class="carousel3d" aria-label="ジャケット一覧（3Dカルーセル）">
+      <button class="car3d-nav" id="car3dPrev" type="button" aria-label="前へ">‹</button>
 
-      <div class="cf-stage" id="cfStage">
-        <div class="cf-item" data-tab="moon" role="button" tabindex="0" aria-label="新月の夜にを開く">
-          <img src="新月の夜にemotional.png" alt="新月の夜に（emotional ver）ジャケット" />
-          <div class="cf-cap">新月の夜に</div>
-        </div>
+      <div class="car3d-stage" id="car3dStage" aria-live="polite">
+        <div class="car3d-ring" id="car3dRing">
+          <button class="car3d-card" type="button" data-index="0" aria-label="新月の夜にを開く">
+            <img src="新月の夜にemotional.png" alt="新月の夜に（emotional ver）ジャケット" />
+            <div class="car3d-cap">新月の夜に</div>
+          </button>
 
-        <div class="cf-item" data-tab="smile" role="button" tabindex="0" aria-label="君とずっと笑っていたいを開く">
-          <img src="君とずっと笑っていたい.jpg" alt="君とずっと笑っていたい ジャケット" />
-          <div class="cf-cap">君とずっと笑っていたい</div>
-        </div>
+          <button class="car3d-card" type="button" data-index="1" aria-label="君とずっと笑っていたいを開く">
+            <img src="君とずっと笑っていたい.jpg" alt="君とずっと笑っていたい ジャケット" />
+            <div class="car3d-cap">君とずっと笑っていたい</div>
+          </button>
 
-        <div class="cf-item" data-tab="now" role="button" tabindex="0" aria-label="いつかじゃなく“今”からを開く">
-          <img src="「いつかじゃなく“今”から」.png" alt="いつかじゃなく“今”から ジャケット" />
-          <div class="cf-cap">いつかじゃなく“今”から</div>
+          <button class="car3d-card" type="button" data-index="2" aria-label="いつかじゃなく“今”からを開く">
+            <img src="「いつかじゃなく“今”から」.png" alt="いつかじゃなく“今”から ジャケット" />
+            <div class="car3d-cap">いつかじゃなく“今”から</div>
+          </button>
+
+          <button class="car3d-card" type="button" data-index="3" aria-label="Just a Greetingを開く">
+            <img src="Just a Greeting.png" alt="Just a Greeting ジャケット" />
+            <div class="car3d-cap">Just a Greeting</div>
+          </button>
+
+          <button class="car3d-card" type="button" data-index="4" aria-label="Scent of You（香りで恋した世界）を開く">
+            <img src="「Scent of You（香りで恋した世界）」.jpg" alt="Scent of You（香りで恋した世界） ジャケット" />
+            <div class="car3d-cap">Scent of You（香りで恋した世界）</div>
+          </button>
+
+          <button class="car3d-card" type="button" data-index="5" aria-label="No one elseを開く">
+            <img src="No one else.JPG" alt="No one else ジャケット" />
+            <div class="car3d-cap">No one else</div>
+          </button>
+
+          <button class="car3d-card" type="button" data-index="6" aria-label="推しがいる世界線を開く">
+            <img src="推しがいる世界線.JPG" alt="推しがいる世界線 ジャケット" />
+            <div class="car3d-cap">推しがいる世界線</div>
+          </button>
+
+          <button class="car3d-card" type="button" data-index="7" aria-label="もう一度、好きから歌うを開く">
+            <img src="もう一度、好きから歌う.JPG" alt="もう一度、好きから歌う ジャケット" />
+            <div class="car3d-cap">もう一度、好きから歌う</div>
+          </button>
         </div>
       </div>
 
-      <button class="cf-nav" id="cfNext" type="button" aria-label="次へ">›</button>
+      <button class="car3d-nav" id="car3dNext" type="button" aria-label="次へ">›</button>
     </section>
   </header>
 
@@ -49,24 +75,49 @@
     <input class="tab-radio" type="radio" name="tab" id="tab-moon" checked />
     <input class="tab-radio" type="radio" name="tab" id="tab-smile" />
     <input class="tab-radio" type="radio" name="tab" id="tab-now" />
+    <input class="tab-radio" type="radio" name="tab" id="tab-greet" />
+    <input class="tab-radio" type="radio" name="tab" id="tab-scent" />
+    <input class="tab-radio" type="radio" name="tab" id="tab-noone" />
+    <input class="tab-radio" type="radio" name="tab" id="tab-oshi" />
+    <input class="tab-radio" type="radio" name="tab" id="tab-oncemore" />
 
     <nav class="tabs" aria-label="曲タブ">
       <label class="tab" for="tab-moon">
         <span class="tab__jp">新月の夜に</span>
         <span class="tab__sub">emotional ver</span>
       </label>
+
       <label class="tab" for="tab-smile">
         <span class="tab__jp">君とずっと笑っていたい</span>
-        <span class="tab__sub">bright ver</span>
       </label>
+
       <label class="tab" for="tab-now">
         <span class="tab__jp">いつかじゃなく“今”から</span>
-        <span class="tab__sub">from now</span>
+      </label>
+
+      <label class="tab" for="tab-greet">
+        <span class="tab__jp">Just a Greeting</span>
+      </label>
+
+      <label class="tab" for="tab-scent">
+        <span class="tab__jp">Scent of You（香りで恋した世界）</span>
+      </label>
+
+      <label class="tab" for="tab-noone">
+        <span class="tab__jp">No one else</span>
+      </label>
+
+      <label class="tab" for="tab-oshi">
+        <span class="tab__jp">推しがいる世界線</span>
+      </label>
+
+      <label class="tab" for="tab-oncemore">
+        <span class="tab__jp">もう一度、好きから歌う</span>
       </label>
     </nav>
 
     <section class="panels">
-      <!-- 1) 新月の夜に -->
+      <!-- 新月の夜に -->
       <article class="panel panel--moon" aria-labelledby="h-moon">
         <div class="panel__grid">
           <div class="panel__cover">
@@ -105,7 +156,7 @@
         </div>
       </article>
 
-      <!-- 2) 君とずっと笑っていたい -->
+      <!-- 君とずっと笑っていたい -->
       <article class="panel panel--smile" aria-labelledby="h-smile">
         <div class="panel__grid">
           <div class="panel__cover">
@@ -144,7 +195,7 @@
         </div>
       </article>
 
-      <!-- 3) いつかじゃなく“今”から -->
+      <!-- いつかじゃなく“今”から -->
       <article class="panel panel--now" aria-labelledby="h-now">
         <div class="panel__grid">
           <div class="panel__cover">
@@ -178,6 +229,200 @@
             <details class="lyrics">
               <summary>歌詞</summary>
               <pre class="lyrics__pre" id="lyNow"></pre>
+            </details>
+          </div>
+        </div>
+      </article>
+      <!-- Just a Greeting -->
+      <article class="panel panel--greet" aria-labelledby="h-greet">
+        <div class="panel__grid">
+          <div class="panel__cover">
+            <img src="Just a Greeting.png" alt="Just a Greeting ジャケット" />
+          </div>
+
+          <div class="panel__body">
+            <h2 id="h-greet">Just a Greeting</h2>
+            <p class="credits">作詞・作曲：kagami itsuki / ボーカル：ミナ</p>
+
+            <div class="player">
+              <audio id="audioGreet" preload="metadata" src="Just a Greeting.mp4"></audio>
+              <button class="btn btn--primary" type="button" data-audio="audioGreet" data-action="toggle">▶ 再生</button>
+              <button class="btn" type="button" data-audio="audioGreet" data-action="stop">■ 停止</button>
+
+              <div class="seek">
+                <input id="seekGreet" type="range" min="0" max="100" value="0" step="0.1" aria-label="再生位置" />
+                <div class="time">
+                  <span id="timeGreet">0:00</span>
+                  <span id="durGreet">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="https://youtu.be/Cu-7bq1Un_0" id="ytGreet">YouTube</a>
+              <a class="pill" href="https://open.spotify.com/intl-ja/album/57PMvTCNBxC2QyhgO0HpGV" id="spGreet">Spotify</a>
+              <a class="pill" href="https://music.apple.com/jp/album/just-a-greeting-single/1867183388" id="amGreet">Apple Music</a>
+            </div>
+
+            <details class="lyrics">
+              <summary>歌詞</summary>
+              <pre class="lyrics__pre" id="lyGreet"></pre>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- Scent of You（香りで恋した世界） -->
+      <article class="panel panel--scent" aria-labelledby="h-scent">
+        <div class="panel__grid">
+          <div class="panel__cover">
+            <img src="「Scent of You（香りで恋した世界）」.jpg" alt="Scent of You（香りで恋した世界） ジャケット" />
+          </div>
+
+          <div class="panel__body">
+            <h2 id="h-scent">Scent of You（香りで恋した世界）</h2>
+            <p class="credits">作詞・作曲：kagami itsuki / ボーカル：ミナ</p>
+
+            <div class="player">
+              <audio id="audioScent" preload="metadata" src="「Scent of You（香りで恋した世界）」.mp4"></audio>
+              <button class="btn btn--primary" type="button" data-audio="audioScent" data-action="toggle">▶ 再生</button>
+              <button class="btn" type="button" data-audio="audioScent" data-action="stop">■ 停止</button>
+
+              <div class="seek">
+                <input id="seekScent" type="range" min="0" max="100" value="0" step="0.1" aria-label="再生位置" />
+                <div class="time">
+                  <span id="timeScent">0:00</span>
+                  <span id="durScent">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="https://youtu.be/rgR7BUsh9wc" id="ytScent">YouTube</a>
+              <a class="pill" href="https://open.spotify.com/intl-ja/album/5BUSSQvmNpjvTWPQUXSPTw" id="spScent">Spotify</a>
+              <a class="pill" href="https://music.apple.com/jp/album/scent-of-you-single/1867703267" id="amScent">Apple Music</a>
+            </div>
+
+            <details class="lyrics">
+              <summary>歌詞</summary>
+              <pre class="lyrics__pre" id="lyScent"></pre>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- No one else -->
+      <article class="panel panel--noone" aria-labelledby="h-noone">
+        <div class="panel__grid">
+          <div class="panel__cover">
+            <img src="No one else.JPG" alt="No one else ジャケット" />
+          </div>
+
+          <div class="panel__body">
+            <h2 id="h-noone">No one else</h2>
+            <p class="credits">作詞・作曲：kagami itsuki / ボーカル：ミナ</p>
+
+            <div class="player">
+              <audio id="audioNoone" preload="metadata" src="No one else.mp4"></audio>
+              <button class="btn btn--primary" type="button" data-audio="audioNoone" data-action="toggle">▶ 再生</button>
+              <button class="btn" type="button" data-audio="audioNoone" data-action="stop">■ 停止</button>
+
+              <div class="seek">
+                <input id="seekNoone" type="range" min="0" max="100" value="0" step="0.1" aria-label="再生位置" />
+                <div class="time">
+                  <span id="timeNoone">0:00</span>
+                  <span id="durNoone">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="https://youtu.be/FQZLO6BIgSY" id="ytNoone">YouTube</a>
+              <a class="pill" href="https://open.spotify.com/intl-ja/album/4IY5saGySWh7BOJirebtZA" id="spNoone">Spotify</a>
+              <a class="pill" href="https://music.apple.com/jp/album/no-one-else-single/1867698180" id="amNoone">Apple Music</a>
+            </div>
+
+            <details class="lyrics">
+              <summary>歌詞</summary>
+              <pre class="lyrics__pre" id="lyNoone"></pre>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- 推しがいる世界線 -->
+      <article class="panel panel--oshi" aria-labelledby="h-oshi">
+        <div class="panel__grid">
+          <div class="panel__cover">
+            <img src="推しがいる世界線.JPG" alt="推しがいる世界線 ジャケット" />
+          </div>
+
+          <div class="panel__body">
+            <h2 id="h-oshi">推しがいる世界線</h2>
+            <p class="credits">作詞・作曲：kagami itsuki / ボーカル：ミナ</p>
+
+            <div class="player">
+              <audio id="audioOshi" preload="metadata" src="『推しがいる世界線』.mp4"></audio>
+              <button class="btn btn--primary" type="button" data-audio="audioOshi" data-action="toggle">▶ 再生</button>
+              <button class="btn" type="button" data-audio="audioOshi" data-action="stop">■ 停止</button>
+
+              <div class="seek">
+                <input id="seekOshi" type="range" min="0" max="100" value="0" step="0.1" aria-label="再生位置" />
+                <div class="time">
+                  <span id="timeOshi">0:00</span>
+                  <span id="durOshi">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="https://youtu.be/0WqEXyjk3Ek" id="ytOshi">YouTube</a>
+              <a class="pill" href="https://open.spotify.com/intl-ja/album/1AFhrrLSCAzx0Sz8gpfh88" id="spOshi">Spotify</a>
+              <a class="pill" href="https://music.apple.com/jp/album/the-timeline-where-my-oshi-exists-single/1867394410" id="amOshi">Apple Music</a>
+            </div>
+
+            <details class="lyrics">
+              <summary>歌詞</summary>
+              <pre class="lyrics__pre" id="lyOshi"></pre>
+            </details>
+          </div>
+        </div>
+      </article>
+
+      <!-- もう一度、好きから歌う -->
+      <article class="panel panel--oncemore" aria-labelledby="h-oncemore">
+        <div class="panel__grid">
+          <div class="panel__cover">
+            <img src="もう一度、好きから歌う.JPG" alt="もう一度、好きから歌う ジャケット" />
+          </div>
+
+          <div class="panel__body">
+            <h2 id="h-oncemore">もう一度、好きから歌う</h2>
+            <p class="credits">作詞・作曲：kagami itsuki / ボーカル：ミナ</p>
+
+            <div class="player">
+              <audio id="audioOncemore" preload="metadata" src="もう一度、歌いたい.mp4"></audio>
+              <button class="btn btn--primary" type="button" data-audio="audioOncemore" data-action="toggle">▶ 再生</button>
+              <button class="btn" type="button" data-audio="audioOncemore" data-action="stop">■ 停止</button>
+
+              <div class="seek">
+                <input id="seekOncemore" type="range" min="0" max="100" value="0" step="0.1" aria-label="再生位置" />
+                <div class="time">
+                  <span id="timeOncemore">0:00</span>
+                  <span id="durOncemore">0:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="links">
+              <a class="pill" href="https://youtu.be/OrB4A_cDca0" id="ytOncemore">YouTube</a>
+              <a class="pill" href="https://open.spotify.com/intl-ja/album/4O5vXFitdN90C1s23kzjr5" id="spOncemore">Spotify</a>
+              <a class="pill" href="https://music.apple.com/jp/album/once-more-ill-sing-from-what-i-love-single/1871309266" id="amOncemore">Apple Music</a>
+            </div>
+
+            <details class="lyrics">
+              <summary>歌詞</summary>
+              <pre class="lyrics__pre" id="lyOncemore"></pre>
             </details>
           </div>
         </div>

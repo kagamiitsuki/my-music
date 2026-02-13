@@ -68,13 +68,13 @@ body{
   color: var(--muted);
 }
 
-/* coverflow */
-.coverflow{
+/* ===== 3D Carousel ===== */
+.carousel3d{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding: 10px 6px;
+  padding: 10px 8px;
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
   border-radius: var(--radius);
@@ -82,52 +82,7 @@ body{
   backdrop-filter: blur(10px);
 }
 
-.cf-stage{
-  position:relative;
-  width:min(860px, 100%);
-  height: 210px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  perspective: 900px;
-  margin: 0 auto;
-}
-
-.cf-item{
-  width: 240px;
-  height: 170px;
-  border-radius: 16px;
-  overflow:hidden;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  box-shadow: 0 18px 50px rgba(0,0,0,.35);
-  transform-style: preserve-3d;
-  transition: transform .25s ease, filter .25s ease, opacity .25s ease;
-  cursor:pointer;
-  position:absolute;
-  user-select:none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.cf-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.cf-cap{
-  position:absolute;
-  left:10px;
-  bottom:8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(8px);
-}
-.cf-nav{
+.car3d-nav{
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -137,8 +92,90 @@ body{
   font-size: 24px;
   cursor:pointer;
   transition: transform .15s ease, background .15s ease;
+  flex: 0 0 auto;
 }
-.cf-nav:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+.car3d-nav:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+
+.car3d-stage{
+  width: min(920px, 100%);
+  height: 230px;
+  perspective: 1100px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow: visible;
+}
+
+.car3d-ring{
+  position: relative;
+  width: 420px;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.2,.9,.2,1);
+}
+
+.car3d-card{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  width: 240px;
+  height: 170px;
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 18px 55px rgba(0,0,0,.32);
+  cursor:pointer;
+  padding:0;
+  margin:0;
+  backface-visibility: hidden;
+  transition: filter .25s ease, transform .25s ease, opacity .25s ease;
+}
+
+.car3d-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+/*
+.car3d-cap{
+  position:absolute;
+  left:10px;
+  bottom:8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+}*/
+
+/* “正面”のカードを強調（JSで is-front を付ける） */
+.car3d-card.is-front{
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 26px 85px rgba(0,0,0,.45);
+}
+
+/* ステージに薄い床反射っぽさ（任意） */
+.car3d-stage::after{
+  content:"";
+  position:absolute;
+  width: 520px;
+  height: 80px;
+  bottom: 18px;
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgba(255,255,255,.10), rgba(255,255,255,0));
+  filter: blur(2px);
+  pointer-events:none;
+}
+
+@media (max-width: 860px){
+  .car3d-stage{ height: 210px; }
+  .car3d-ring{ width: 360px; height: 200px; }
+  .car3d-card{ width: 220px; height: 160px; }
+}
 
 /* layout */
 .container{
@@ -146,6 +183,9 @@ body{
   margin: 0 auto;
   padding: 12px 16px 70px;
 }
+
+.car3d-stage{ cursor: grab; }
+.car3d-stage.dragging{ cursor: grabbing; }
 
 /* tabs powered by :has() */
 .tab-radio{ position:absolute; left:-9999px; }
@@ -173,7 +213,13 @@ body{
 
 body:has(#tab-moon:checked) .tabs label[for="tab-moon"],
 body:has(#tab-smile:checked) .tabs label[for="tab-smile"],
-body:has(#tab-now:checked) .tabs label[for="tab-now"]{
+body:has(#tab-now:checked) .tabs label[for="tab-now"]
+body:has(#tab-greet:checked) .tabs label[for="tab-greet"],
+body:has(#tab-scent:checked) .tabs label[for="tab-scent"],
+body:has(#tab-noone:checked) .tabs label[for="tab-noone"],
+body:has(#tab-oshi:checked)  .tabs label[for="tab-oshi"],
+body:has(#tab-oncemore:checked) .tabs label[for="tab-oncemore"]
+{
   background: linear-gradient(180deg, rgba(160,200,255,.18), rgba(255,255,255,.06));
   border-color: rgba(255,255,255,.22);
   transform: translateY(-1px);
@@ -194,6 +240,11 @@ body:has(#tab-now:checked) .tabs label[for="tab-now"]{
 body:has(#tab-moon:checked) .panel--moon{ display:block; }
 body:has(#tab-smile:checked) .panel--smile{ display:block; }
 body:has(#tab-now:checked) .panel--now{ display:block; }
+body:has(#tab-greet:checked) .panel--greet{ display:block; }
+body:has(#tab-scent:checked) .panel--scent{ display:block; }
+body:has(#tab-noone:checked) .panel--noone{ display:block; }
+body:has(#tab-oshi:checked)  .panel--oshi{ display:block; }
+body:has(#tab-oncemore:checked) .panel--oncemore{ display:block; }
 
 .panel__grid{
   display:grid;
