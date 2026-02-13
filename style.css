@@ -139,18 +139,6 @@ body{
   object-fit:cover;
   display:block;
 }
-/*
-.car3d-cap{
-  position:absolute;
-  left:10px;
-  bottom:8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(8px);
-}*/
 
 /* “正面”のカードを強調（JSで is-front を付ける） */
 .car3d-card.is-front{
@@ -213,7 +201,7 @@ body{
 
 body:has(#tab-moon:checked) .tabs label[for="tab-moon"],
 body:has(#tab-smile:checked) .tabs label[for="tab-smile"],
-body:has(#tab-now:checked) .tabs label[for="tab-now"]
+body:has(#tab-now:checked) .tabs label[for="tab-now"],
 body:has(#tab-greet:checked) .tabs label[for="tab-greet"],
 body:has(#tab-scent:checked) .tabs label[for="tab-scent"],
 body:has(#tab-noone:checked) .tabs label[for="tab-noone"],
